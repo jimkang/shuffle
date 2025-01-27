@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shuffle</title>
+    <link rel="stylesheet" href="app.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div id="status-message" class="hidden"></div>
+
+    <h1 class="title">
+      Shuffle
+    </h1>
+
+    <main>
+      <section id="deck">
+        <h3>Deck</h3>
+
+        <ol id="card-list">
+        </ol>
+
+        <button id="add-card-button">Add card</button>
+      </section>
+
+      <section id="results">
+        <h3>Results</h3>
+
+        <button id="shuffle-deck-button">Shuffle deck</button>
+
+        <h4>Current draw</h4>
+        <h4 id="current-draw"></h4>
+
+        <button id="draw-button">Draw next card</button>
+      </section>
+    </main>
+
+    <div id="version-info"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
