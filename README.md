@@ -1,5 +1,7 @@
 # shuffle
 
+A web app that shuffles user-defined text. [
+
 ## Getting it running
 
 Once you have this source code on your computer, you can get it running by doing the following.

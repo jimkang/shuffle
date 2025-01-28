@@ -2,9 +2,18 @@ import { select } from 'd3-selection';
 import Strokerouter from 'strokerouter';
 
 var cardListSel = select('#card-list');
+var deckNameSel = select('#deck-name');
 
-export function renderDeck({ cards, addCard, onCardChanged }) {
-  console.log('card count', cards.length);
+export function renderDeck({
+  cards,
+  deckName,
+  addCard,
+  onCardChanged,
+  onDeckNameChanged,
+}) {
+  deckNameSel.text(deckName).on('blur', onNameBlur);
+  setUpKeys.bind(deckNameSel.node())();
+
   var cardsSel = cardListSel.selectAll('.card').data(cards);
   cardsSel.exit().remove();
   var newCardsSel = cardsSel
@@ -22,6 +31,10 @@ export function renderDeck({ cards, addCard, onCardChanged }) {
 
   function onCardBlur({ target }) {
     onCardChanged({ newText: target.textContent, order: target.dataset.order });
+  }
+
+  function onNameBlur({ target }) {
+    onDeckNameChanged({ newName: target.textContent });
   }
 
   function setUpKeys() {

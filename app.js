@@ -18,13 +18,14 @@ var currentIndex = 0;
     windowObject: window,
     defaults: {
       cards: [],
+      deckName: '[Your deck name here]',
     },
   });
   urlStore.update();
 })();
 
-function onUpdate({ cards }) {
-  renderDeck({ cards, addCard, onCardChanged });
+function onUpdate({ cards, deckName }) {
+  renderDeck({ cards, deckName, addCard, onCardChanged, onDeckNameChanged });
   renderResults({ runShuffle, drawNext, draws });
 
   function addCard() {
@@ -35,6 +36,10 @@ function onUpdate({ cards }) {
   function onCardChanged({ newText, order }) {
     cards[order] = newText;
     urlStore.update({ cards });
+  }
+
+  function onDeckNameChanged({ newName }) {
+    urlStore.update({ deckName: newName });
   }
 
   function runShuffle() {
