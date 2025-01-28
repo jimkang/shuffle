@@ -16,7 +16,7 @@ build:
 	$(rollup) -c
 
 sync:
-	rsync -a $(HOMEDIR)/ $(USER)@$(SERVER):/$(APPDIR) \
+	rsync -a $(HOMEDIR)/ $(USER)@$(SERVER):$(APPDIR) \
     --exclude node_modules/
 
 set-up-server-dir:
