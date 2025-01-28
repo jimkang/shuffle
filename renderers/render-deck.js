@@ -12,6 +12,8 @@ export function renderDeck({
   onDeckNameChanged,
 }) {
   deckNameSel.text(deckName).on('blur', onNameBlur);
+  document.title = 'Shuffle: ' + deckName;
+
   setUpKeys.bind(deckNameSel.node())();
 
   var cardsSel = cardListSel.selectAll('.card').data(cards);
