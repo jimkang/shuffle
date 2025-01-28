@@ -1,6 +1,8 @@
 # shuffle
 
-A web app that shuffles user-defined text. [
+https://ghostcrab.io/shuffle/
+
+A web app that shuffles user-defined text. [Example: randomized daily warm-ups](https://ghostcrab.io/shuffle/#cards[0]=Drinky%20bird&cards[1]=Jumping%20jacks&cards[10]=Head%20circles&cards[11]=Side%20falls&cards[12]=Zenpo%20kaiten&cards[13]=Bridges&cards[14]=Hip%20twists&cards[2]=Windmills&cards[3]=Side%20stretches&cards[4]=Judo%20push-ups&cards[5]=Fingertip%20push-ups&cards[6]=Planks&cards[7]=Cat/cow&cards[8]=Small%20arm%20circles&cards[9]=Big%20arm%20circles&deckName=Junior%20Calisthenics)
 
 ## Getting it running
 
