@@ -7,7 +7,7 @@ import { shuffle } from 'probable';
 
 var urlStore;
 var draws = [];
-var currentIndex = -1;
+var currentIndex = 0;
 
 (async function go() {
   window.onerror = reportTopLevelError;
@@ -42,12 +42,13 @@ function onUpdate({ cards }) {
   }
 
   function drawNext() {
-    currentIndex += 1;
-    if (currentIndex > cards.length) {
-      currentIndex = 0;
-    }
     draws.push(cards[currentIndex]);
     renderResults({ runShuffle, drawNext, draws });
+
+    currentIndex += 1;
+    if (currentIndex >= cards.length) {
+      currentIndex = 0;
+    }
   }
 }
 
