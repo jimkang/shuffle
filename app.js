@@ -6,8 +6,8 @@ import { renderResults } from './renderers/render-results';
 import { shuffle } from 'probable';
 
 var urlStore;
+var cardsToDraw = [];
 var draws = [];
-var currentIndex = 0;
 
 (async function go() {
   window.onerror = reportTopLevelError;
@@ -26,7 +26,7 @@ var currentIndex = 0;
 
 function onUpdate({ cards, deckName }) {
   renderDeck({ cards, deckName, addCard, onCardChanged, onDeckNameChanged });
-  renderResults({ runShuffle, drawNext, draws });
+  renderResults({ runShuffle, drawNext, draws, cardsToDraw });
 
   function addCard() {
     cards.push('Edit this');
@@ -43,16 +43,14 @@ function onUpdate({ cards, deckName }) {
   }
 
   function runShuffle() {
-    cards = shuffle(cards);
+    cardsToDraw = shuffle(cards);
+    renderResults({ runShuffle, drawNext, draws, cardsToDraw });
   }
 
   function drawNext() {
-    draws.push(cards[currentIndex]);
-    renderResults({ runShuffle, drawNext, draws });
-
-    currentIndex += 1;
-    if (currentIndex >= cards.length) {
-      currentIndex = 0;
+    if (cardsToDraw.length > 0) {
+      draws.push(cardsToDraw.pop());
+      renderResults({ runShuffle, drawNext, draws, cardsToDraw });
     }
   }
 }
